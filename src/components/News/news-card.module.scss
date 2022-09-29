@@ -1,0 +1,49 @@
+.new {
+  display: flex;
+  justify-content: space-around;
+  width: 98%;
+  margin: 10px auto;
+  background: rgb(14, 13, 13);
+
+  &_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    font-size: 0;
+    line-height: 0;  
+    margin: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &_info { 
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 10px;
+    width: 60%;
+    max-width: 100%;
+    flex-grow: 1;
+
+    
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin-inline: 0;
+    margin-block: 4px;
+  }
+
+  span {
+    font-size: smaller;
+    color: rgb(105, 252, 203);
+    font-style: italic;    
+    text-align: right;
+  }
+}
