@@ -3,16 +3,23 @@ import image2 from '../../img/projects_card/kinopoinsk.JPG';
 import image3 from '../../img/projects_card/mini-game.JPG'
 
 
-interface projectListType {
-  id: number,
-  name: string,
-  gitUrl: string,
-  deploy: string | null,
-  description: string,
-  imgUrl: string
+export interface projectListType {
+  title: string,
+  description: string | null,
+  list:{
+    id: number,
+    name: string,
+    gitUrl: string,
+    deploy: string | null,
+    description: string,
+    imgUrl: string | null
+  }[]
 }
 
-export const projectList: projectListType[] = [
+export const projectList: projectListType = {
+  title: 'Мои работы',
+  description: 'Это небольшая галерея, выполненных мной проектов. Они выставлены в порядке улучшения моих навыков и пополнения знаний новыми технологиями. Более подробно со всеми проектами можно ознакомиться в соответствующем разделе',
+  list: [
   {
     id: 1,
     name: 'Покедекс',
@@ -31,11 +38,11 @@ export const projectList: projectListType[] = [
   },
   {
     id: 3,
-    name: 'RPGButtle',
+    name: 'RPGBattle',
     gitUrl: 'https://github.com/ulvis1995/taskAndGames/tree/master/task4-lad%20RPG%20Battle',
     deploy: null,
     description: 'Эта мини-игра создавалась в качестве тестового задания на знание JavaScript для стажировки в компанию Lad24.ru.',
     imgUrl: image3
   },
-] 
+] }
 

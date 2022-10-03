@@ -7,14 +7,14 @@ interface CardProps {
   gitUrl: string,
   deploy: string | null,
   description: string,
-  imgUrl: string
+  imgUrl: string | null
 }
 
 const PortfolioCard: React.FC<CardProps> = (props) => {
   return (
     <div className={st.project}>
       <div className={st.project_image}>
-        <img src={props.imgUrl}></img>
+        {props.imgUrl &&<img src={props.imgUrl} />}
       </div>
       <div className={st.project_info}>
         <h3>{props.name}</h3>

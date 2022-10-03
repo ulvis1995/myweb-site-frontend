@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import st from './main.module.scss';
 import myphoto from '../../img/myphoto.JPG';
 import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
 import { projectList } from '../../components/PortfolioCard/portfolio-list';
 import { newsList } from '../../components/News/newsList';
 import NewsCard from '../../components/News/NewsCard';
+import PortfolioBlock from '../../components/PortfolioBlock/PortfolioBlock';
 
 const Main: React.FC = () =>  {
 
@@ -27,23 +29,7 @@ const Main: React.FC = () =>  {
             <img src={myphoto} alt='Парамонова Виолетта'/>
           </div>
         </div>
-        <div className={st.container_portfolio}>
-          <div className={st.container_portfolio_title}>
-            <h2>Мои работы</h2>
-            <p>Это небольшая галерея, выполненных мной проектов. Они выставлены в порядке улучшения моих навыков и пополнения знаний новыми технологиями. Более подробно со всеми проектами можно ознакомиться в соответствующем разделе</p>
-            <button>Посмотреть больше...</button>
-          </div>
-          <div className={st.container_portfolio_list}>
-            {projectList.map(item => 
-              <PortfolioCard key={`${item.id}_${item.name}`}
-              name={item.name}
-              gitUrl={item.gitUrl}
-              deploy={item.deploy}
-              description={item.description}
-              imgUrl={item.imgUrl}
-              />)}
-          </div>
-        </div>
+        <PortfolioBlock portfolio={projectList} />
         <div className={st.container_technology}>
           <h2>Изучено и могу применять:</h2>
           <ul>
