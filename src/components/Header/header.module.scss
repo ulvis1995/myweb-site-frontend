@@ -44,6 +44,7 @@
     border: 2px solid rgb(37, 37, 37);
 
     &:hover, &:focus {
+      cursor: pointer;
       color: rgb(105, 252, 203);
       border-bottom: 2px solid rgb(105, 252, 203);
       border-right: 2px solid rgb(105, 252, 203);
@@ -51,6 +52,11 @@
       border-left: 2px solid rgb(204, 252, 236);
       border-radius: 8px;
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
   }
 }
 
