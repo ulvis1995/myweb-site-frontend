@@ -6,7 +6,7 @@ import gmail from '../../img/social/icons8-gmail.svg';
 import mailru from '../../img/social/mail_ru_logo_icon_147267.svg';
 import git from '../../img/social/icons8-github.svg';
 import hh from '../../img/social/hh.ru__min_.svg';
-import habr from '../../img/social/habrahabr-ru-icon.png'
+import habr from '../../img/social/habrahabr-ru-icon.png';
 
 
 const Footer: React.FC = () => {

@@ -14,11 +14,10 @@ const Header: React.FC = () => {
         </Link>
         <div className={st.list}>
           <ul>
-            <li>Новости</li>
+            <li><Link to='/news'>Новости</Link></li>
             <li><Link to='/portfolio'>Портфолио</Link></li>
-            <li>Технологии</li>
             <li><Link to='/about'>Обо мне</Link></li>
-            <li>Контакты</li>
+            <li><Link to='/contacts'>Контакты</Link></li>
           </ul>
         </div>
       </div>
