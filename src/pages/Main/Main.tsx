@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import st from './main.module.scss';
 import myphoto from '../../img/myphoto.JPG';
-import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
 import { projectList } from '../../components/PortfolioCard/portfolio-list';
 import { newsList } from '../../components/News/newsList';
 import NewsCard from '../../components/News/NewsCard';

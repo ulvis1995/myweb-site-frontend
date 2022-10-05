@@ -17,7 +17,7 @@ const Header: React.FC = () => {
             <li>Новости</li>
             <li><Link to='/portfolio'>Портфолио</Link></li>
             <li>Технологии</li>
-            <li>Обо мне</li>
+            <li><Link to='/about'>Обо мне</Link></li>
             <li>Контакты</li>
           </ul>
         </div>
