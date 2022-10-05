@@ -19,7 +19,7 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = (props) => {
         {location.pathname === '/' && <button><Link to='/portfolio'>Посмотреть больше...</Link></button>}
       </div>
       <div className={st.portfolio_list}>
-        {props.portfolio.list.map(item => 
+        {[...props.portfolio.list].reverse().map(item => 
           <PortfolioCard key={`${item.id}_${item.name}`}
           name={item.name}
           gitUrl={item.gitUrl}
