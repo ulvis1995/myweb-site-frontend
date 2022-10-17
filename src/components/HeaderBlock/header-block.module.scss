@@ -1,0 +1,21 @@
+.block_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid transparent;
+
+  svg rect {
+    fill: var(--purple--100);
+  }
+
+  h2 {
+    margin: 4px 12px;
+  }
+}
+
+.header_link:hover, .header_link:focus {
+  border-radius: 8px;
+  border-color: var(--border);
+  background-color: var(--grey--100);
+}

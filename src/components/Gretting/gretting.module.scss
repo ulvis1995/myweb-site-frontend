@@ -1,0 +1,81 @@
+@import '../../styles/mixins.scss';
+
+.gretting {
+  display: flex;
+  justify-content: space-around;
+  color: var(--white--100);
+
+  @include media-breakpoint-down('md') {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin-block: 20px;
+  }
+
+  &_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 32px;
+    margin-left: 10px;
+    text-align: left;
+    text-decoration: none;
+    transition: text-decoration 4s ease;
+    
+    &:hover, &:focus {
+      text-decoration: underline;
+      text-decoration-color: var(--purple--100);
+    }
+
+    h2, h3, p {
+      margin: 4px;
+      color: var(--aqua--200);
+    }
+
+    h2 {
+      text-align: right;
+    }
+  }
+
+  &_image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    padding-bottom: 0;
+    margin: 40px;
+
+    &_first, &_back {
+      height: 320px;
+      width: 320px;
+      border-radius: 20px;
+
+      @include media-breakpoint-down('sm') {
+        height: 220px;
+        width: 220px;
+      }
+    }
+
+    &_first {
+      padding: 20px 100px 0 20px;
+      background: var(--gradient);
+      z-index: 9;
+      img {
+        height: 300px;
+
+        @include media-breakpoint-down('sm') {
+          height: 200px;
+        }
+      }
+    }
+
+    &_back {
+      position: absolute;
+      background: var(--aqua--200);
+      rotate: 10deg;
+      z-index: 0;
+    }
+  }
+}

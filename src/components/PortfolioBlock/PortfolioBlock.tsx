@@ -1,35 +1,40 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { projectListType } from '../PortfolioCard/portfolio-list';
+import { projectListType } from '../../BlockData/portfolioData';
+import { LineIcon } from '../../img/icons';
+import HeaderBlockLink from '../HeaderBlock/HeaderBlockLink';
+import HeaderBlockText from '../HeaderBlock/HeaderBlockText';
 import PortfolioCard from '../PortfolioCard/PortfolioCard';
-import st from './portfolio-block.module.scss';
 
 interface PortfolioBlockProps {
-  portfolio: projectListType
+  portfolio: projectListType;
 }
 
-const PortfolioBlock: React.FC<PortfolioBlockProps> = (props) => {
+const PortfolioBlock = (props: PortfolioBlockProps) => {
   const location = useLocation();
 
   return (
-    <div className={st.portfolio}>
-      <div className={st.portfolio_title}>
-        <h2>{props.portfolio.title}</h2>
-        <p>{props.portfolio.description}</p>
-        {location.pathname === '/' && <button><Link to='/portfolio'>Посмотреть больше...</Link></button>}
-      </div>
-      <div className={st.portfolio_list}>
-        {[...props.portfolio.list].reverse().map(item => 
-          <PortfolioCard key={`${item.id}_${item.name}`}
-          name={item.name}
-          gitUrl={item.gitUrl}
-          deploy={item.deploy}
-          description={item.description}
-          imgUrl={item.imgUrl}
-          />)}
+    <div className="block-wrapper">
+      {location.pathname === '/' ? (
+        <HeaderBlockLink>Мои работы и проекты</HeaderBlockLink>
+      ) : (
+        <HeaderBlockText>{props.portfolio.title}</HeaderBlockText>
+      )}
+      <div className="block-list">
+        {[...props.portfolio.list].reverse().map((item) => (
+          <PortfolioCard
+            key={`${item.id}_${item.name}`}
+            name={item.name}
+            gitUrl={item.gitUrl}
+            deploy={item.deploy}
+            description={item.description}
+            imgUrl={item.imgUrl}
+            technology={item.technology}
+          />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PortfolioBlock
+export default PortfolioBlock;

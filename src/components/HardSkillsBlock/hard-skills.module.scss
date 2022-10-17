@@ -1,0 +1,37 @@
+@import '../../styles/mixins.scss';
+
+.technology {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(--white--100);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; 
+
+  &_list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 100%;
+    list-style: none;
+    padding: 4px;
+    margin-inline: 10px;
+    gap: 12px;
+
+    @include media-breakpoint-down('sm') {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+    
+    li {
+      min-width: 45%;
+      padding: 7px 20px;
+      border-radius: 4px;
+      border: 1px solid;
+      border-color: var(--grey--400);
+      border-left: 10px solid var(--aqua--200); 
+      background: var(--grey--100);
+    }
+  }
+}

@@ -8,11 +8,11 @@ import git from '../../img/social/icons8-github.svg';
 import hh from '../../img/social/hh.ru__min_.svg';
 import habr from '../../img/social/habrahabr-ru-icon.png';
 
-type Props = {}
+type Props = {};
 
 const Contacts: React.FC = ({}: Props) => {
   return (
-    <main className={st.wrapper}>
+    <main className="wrapper">
       <div className={st.container}>
         <div className={st.container_mail}>
           <h2>Способы связи:</h2>
@@ -21,14 +21,14 @@ const Contacts: React.FC = ({}: Props) => {
               {/* <h3>Соц.сети</h3> */}
               <ul>
                 <li>
-                  <a href='https://t.me/vitaparamonova' target="_blank" title='Telegram'>
-                    <img src={telegram}/>
+                  <a href="https://t.me/vitaparamonova" target="_blank" title="Telegram">
+                    <img src={telegram} />
                   </a>
                   <p>@vitaparamonova</p>
                 </li>
                 <li>
-                  <a href='https://vk.com/id135541653' target="_blank" title='Vkontakte'>
-                    <img src={vk} id='vk'/>
+                  <a href="https://vk.com/id135541653" target="_blank" title="Vkontakte">
+                    <img src={vk} id="vk" />
                   </a>
                   <p>id135541653</p>
                 </li>
@@ -38,14 +38,14 @@ const Contacts: React.FC = ({}: Props) => {
               {/* <h3>Почта</h3> */}
               <ul>
                 <li>
-                  <a href='mailto:violettapar1995@gmail.com' title='Gmail'>
-                    <img src={gmail}/>
+                  <a href="mailto:violettapar1995@gmail.com" title="Gmail">
+                    <img src={gmail} />
                   </a>
                   <p>violettapar1995@gmail.com</p>
                 </li>
                 <li>
-                  <a href='mailto:viopar@mail.ru' target="_blank" title='Mail.ru'>
-                    <img src={mailru}/>
+                  <a href="mailto:viopar@mail.ru" target="_blank" title="Mail.ru">
+                    <img src={mailru} />
                   </a>
                   <p>viopar@mail.ru</p>
                 </li>
@@ -60,21 +60,22 @@ const Contacts: React.FC = ({}: Props) => {
               {/* <h3>Соц.сети</h3> */}
               <ul>
                 <li>
-                  <a href='https://github.com/ulvis1995' target="_blank" title='GitHub'>
-                    <img src={git}/>
+                  <a href="https://github.com/ulvis1995" target="_blank" title="GitHub">
+                    <img src={git} />
                   </a>
                   <p>https://github.com/ulvis1995</p>
                 </li>
                 <li>
-                  <a href='https://kazan.hh.ru/resume/c6de691dff0b1c697f0039ed1f6d49506d7858' 
-                    title='HeadHunter.ru' target="_blank">
-                    <img src={hh}/>
+                  <a
+                    href="https://kazan.hh.ru/resume/c6de691dff0b1c697f0039ed1f6d49506d7858"
+                    title="HeadHunter.ru"
+                    target="_blank">
+                    <img src={hh} />
                   </a>
                 </li>
                 <li>
-                  <a href='https://career.habr.com/violettaparamonova' 
-                    title='Habr' target="_blank">
-                    <img src={habr}/>
+                  <a href="https://career.habr.com/violettaparamonova" title="Habr" target="_blank">
+                    <img src={habr} />
                   </a>
                   <p>https://career.habr.com/violettaparamonova</p>
                 </li>
@@ -84,7 +85,7 @@ const Contacts: React.FC = ({}: Props) => {
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Contacts
+export default Contacts;
