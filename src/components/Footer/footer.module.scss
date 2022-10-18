@@ -1,21 +1,24 @@
+@import '../../styles/mixins.scss';
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  background: rgb(37, 37, 37);
+  color: var(--white--100);
+  background: var(--black--100);
   width: 100%;
-
-  h3 {
-    margin: 0;
-  }
 }
 
 .container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   width: 100%;
-  border-top: 2px solid #fff;
+  border-top: 1px solid var(--white--100);
+
+  @include media-breakpoint-down('xs') {
+    flex-direction: column;
+  }
 }
 
 .block {
@@ -29,22 +32,21 @@
     display: flex;
     padding: 0;
     margin: 0;
-  }
-
-  li {
     list-style: none;
   }
 
   a {
-    text-decoration: none;
-    color: #fff;
     font-size: 0;
     line-height: 0;
   }
 
-  img {
+  svg {
     height: 40px;
     width: 40px;
-    padding: 2px;
+
+    path, polygon {
+      padding: 2px;
+      fill: var(--grey--200);
+    }
   }
 }

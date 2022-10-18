@@ -1,10 +1,15 @@
+@import '../../styles/mixins.scss';
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  background: rgb(19, 19, 19);
+  color: var(--aqua--200);
+  background: var(--black--100);
   min-height: 65px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .container {
@@ -14,50 +19,84 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  background: var(--black--100);
+
+  @include media-breakpoint-down('maxXl') {
+    margin-inline: 24px;
+  }
+
+}
+
+.logo_block {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 8px;
+  border: 2px solid transparent;
+
+  &:hover, &:focus {
+    border-radius: 8px;
+    border-color: var(--border);
+    background-color: var(--grey--100);
+  }
 }
 
 .avatar {
-  display:  flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20px;
-
-  img {
-    width: 8vh;
-    height: 8vh;
-    border-radius: 50%;
-    border: 2px solid rgb(105, 252, 203);
-    margin: 4px;
+  svg {
+    rotate: 180deg;
+    path{
+      fill:var(--aqua--100)
+    }
   }
 }
 
 .list {
-  margin-right: 20px;
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+
+  @include media-breakpoint-down('sm') {
+    display: none;
   }
 
   li {
     padding: 4px;
     margin: 0 4px; 
-    border: 2px solid rgb(19,19,19);
+    border: 2px solid var(--black--100);
 
     &:hover, &:focus {
       cursor: pointer;
-      color: rgb(105, 252, 203);
-      border-bottom: 2px solid rgb(105, 252, 203);
-      border-right: 2px solid rgb(105, 252, 203);
-      border-top: 2px solid rgb(204, 252, 236);
-      border-left: 2px solid rgb(204, 252, 236);
+      color: var(--aqua--200);
+      border-color: var(--border);
       border-radius: 8px;
     }
   }
 
-  a {
-    text-decoration: none;
-    color: #fff;
+  a, a:focus, a:hover {
+    color: var(--white--100);
   }
 }
 
+.menu_icon {
+  display: none;
+  
+  @include media-breakpoint-down ('sm') {
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    line-height: 0;
+    margin: 12px;
+    border: 2px solid transparent;
+  
+    &:hover, &:focus {
+      color: var(--aqua--200);
+      border-color: var(--border);
+      border-radius: 8px;
+    }
+  }
+}

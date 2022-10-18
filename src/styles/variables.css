@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --white--100: #fff;
+  --black--100: #000;
+
+  --grey--100: rgba(204, 252, 236, 0.1);
+  --grey--200: rgb(37, 37, 37);
+  --grey--300: rgb(68, 68, 68);
+  --grey--400: rgb(104, 104, 104);
+  --grey--200: rgba(253, 253, 253, 0.4);
+
+  --aqua--100: rgb(204, 252, 236);
+  --aqua--200: rgb(105, 252, 203);
+
+  --purple--100: #fd2155;
+
+  --gradient: linear-gradient(45deg, #fd2a5b, rgb(105, 252, 203), #fd2a5b);
+
+  /* Border */
+
+  --border: var(--aqua--100) var(--aqua--200) var(--aqua--200) var(--aqua--100);
+}

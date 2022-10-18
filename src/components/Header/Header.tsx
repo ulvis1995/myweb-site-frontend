@@ -1,28 +1,37 @@
 import React from 'react';
 import st from './header.module.scss';
-import icon from '../../img/DSC_1815.webp';
 import { Link } from 'react-router-dom';
+import { LogoIcon } from '../../img/icons';
+import { MenuIcon } from '../../img/icons';
+import { menuList } from '../../BlockData/constants';
 
-const Header: React.FC = () => {
+type TProps = {
+  clickDrawer: () => void;
+};
+
+const Header = ({ clickDrawer }: TProps) => {
   return (
     <header className={st.wrapper}>
       <div className={st.container}>
-        <Link to='/'>
+        <Link to="/" className={st.logo_block}>
           <div className={st.avatar}>
-            <img src={icon} />
+            <LogoIcon />
           </div>
+          <h2>Vita</h2>
         </Link>
-        <div className={st.list}>
-          <ul>
-            <li><Link to='/news'>Новости</Link></li>
-            <li><Link to='/portfolio'>Портфолио</Link></li>
-            <li><Link to='/about'>Обо мне</Link></li>
-            <li><Link to='/contacts'>Контакты</Link></li>
-          </ul>
-        </div>
+        <ul className={st.list}>
+          {menuList.map((item) => (
+            <li key={item.text}>
+              <Link to={item.link}>{item.text}</Link>
+            </li>
+          ))}
+        </ul>
+        <button className={st.menu_icon} onClick={clickDrawer}>
+          <MenuIcon />
+        </button>
       </div>
     </header>
-  )
-}
+  );
+};
 
 export default Header;

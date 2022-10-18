@@ -1,0 +1,105 @@
+.container {
+
+  .logo_block {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 120px;
+    gap: 10px;
+    text-decoration: none;
+    padding: 8px;
+    border: 2px solid transparent;
+  
+    &:hover, &:focus {
+      border-radius: 8px;
+      border: 2px solid;
+      border-color: var(--border);
+      background-color: var(--grey--100);
+    }
+  }
+
+  .avatar {
+    svg {
+      rotate: 180deg;
+      path{
+        fill:var(--aqua--100)
+      }
+    }
+  }
+
+  :global {
+    .ant-drawer-content{
+      background-color: var(--grey--300);
+      padding: 16px;
+      padding-top: 24px;
+    }
+
+    .ant-drawer-header {
+      border: none;
+      padding: 0;
+    }
+
+    .ant-drawer-header-title {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    .ant-drawer-close {
+      padding: 0;
+      margin: 0;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:hover, &:focus {
+        path {
+          fill:var(--aqua--200)
+        }
+      }
+    }
+
+    .ant-drawer-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        gap: 24px;
+    
+        a {
+          background-color: var(--aqua--200);
+          background-image: var(--gradient);
+          background-size: 100%;
+          background-repeat: repeat;
+          background-clip: text;
+          -webkit-text-fill-color: transparent; 
+          -moz-background-clip: text;
+          -moz-text-fill-color: transparent;
+          border: 2px solid transparent;
+          padding: 4px;
+          
+          &:hover, &:focus {
+            border-radius: 8px;
+            border-color: var(--border);
+          }
+          }
+        }
+    }
+
+    .ant-drawer-footer {
+      border: none;
+      padding: 0;
+    }
+  }
+}

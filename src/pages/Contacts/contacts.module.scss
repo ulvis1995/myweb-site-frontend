@@ -1,77 +1,69 @@
-.wrapper {
-  display: flex;
-  flex-grow: 1;
-  color: #fff;
-  background: rgb(104, 104, 104);
-  height: 100%;
-  width: 100%;
-}
+@import '../../styles/mixins.scss';
 
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   min-height: 100%;
   width: 100%;
   max-width: 1200px;
-  background: rgb(37, 37, 37);
   margin: 0 auto;
+  gap: 24px;
 
-  &_mail {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 500px;
-
-    &_list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-  
-      
-      &_block {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        // align-items: center;
-        justify-content: space-around;
-        margin-right: 20px;
-  
-        ul {
-          display: flex;
-          flex-direction: column;
-          padding: 0;
-          margin: 0;
-        }
-  
-        li {
-          display: flex;
-          align-items: center;
-          list-style: none;
-        }
-  
-        a {
-          text-decoration: none;
-          color: #fff;
-          font-size: 0;
-          line-height: 0;
-        }
-  
-        p {
-          margin-inline: 6px;
-        }
-  
-        img {
-          height: 40px;
-          width: 40px;
-          padding: 2px;
-        }
-      }
-    }
+  @include media-breakpoint-down('maxXl') {
+    margin: 0 24px;
   }
 
-  h2 {
-    color: rgb(105, 252, 203);
+  @include media-breakpoint-down('sm') {
+    margin: 0 12px;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 24px;
+
+
+  h3 {
+    color: var(--aqua--200);
+  }
+
+  p {
+    color: var(--white--100);
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 12px;
+  }
+
+  li {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 12px;
+  }
+
+  a {
+    font-size: 0;
+    line-height: 0;
+  }
+
+  svg {
+    height: 40px;
+    width: 40px;
+
+    path, polygon {
+      fill: var(--grey--200);
+    }
   }
 }
