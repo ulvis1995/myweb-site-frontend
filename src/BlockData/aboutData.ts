@@ -1,13 +1,6 @@
-import girl from '../../img/about/girl.png';
-import plans from '../../img/about/task.png';
-import work from '../../img/about/suitcase.png';
-import education from '../../img/about/mortarboard.png';
-import hobby from '../../img/about/lifestyle.png';
-
 export interface TAboutItem {
   id: number,
   title: string,
-  image: string,
   list: {
     id: number,
     text: string
@@ -19,12 +12,11 @@ const age = new Date().getFullYear() - 1995;
 export const aboutData: TAboutItem[] = [
   {
     id: 1,
-    title: 'Еще немного обо мне',
-    image: girl,
+    title: 'Еще обо мне',
     list: [
       {
         id:1,
-        text: `Мне ${age}. Я родилась, выросла и живу в небольшом, довольно милом и очень зеленом городке, фактически являющимся пригородом столицы Республики Татарстан, - в Зеленодольске.`
+        text: `Мне ${age}. Я родилась, выросла и живу в небольшом, довольно милом и очень зеленом городке, практически являющимся пригородом столицы Республики Татарстан, - в Зеленодольске.`
       },
       {
         id:2,
@@ -42,8 +34,7 @@ export const aboutData: TAboutItem[] = [
   },
   {
     id: 2,
-    title: 'Планы на перспективу',
-    image: plans,
+    title: 'Планы',
     list: [
       {
         id:1,
@@ -66,7 +57,6 @@ export const aboutData: TAboutItem[] = [
   {
     id: 3,
     title: 'Образование',
-    image: education,
     list: [
       {
         id:1,
@@ -89,7 +79,6 @@ export const aboutData: TAboutItem[] = [
   {
     id: 4,
     title: 'Увлечения',
-    image: hobby,
     list: [
       {
         id:1,
@@ -112,8 +101,7 @@ export const aboutData: TAboutItem[] = [
   
   {
     id: 5,
-    title: 'Опыт работы и программирования',
-    image: work,
+    title: 'Опыт',
     list: [
       {
         id:1,

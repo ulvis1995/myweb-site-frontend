@@ -1,6 +1,6 @@
 import React from 'react';
 import st from './news-card.module.scss';
-import imgNone from '../../img/news.png';
+import imgNone from '../../img/news/news.png';
 
 interface NewsProps {
   title: string;

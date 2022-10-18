@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
               {block.data.map((i) => (
                 <li key={i.id}>
                   <a href={i.ref} target="_blank" title={i.title}>
-                    <img src={i.image} />
+                    {i.image}
                   </a>
                 </li>
               ))}

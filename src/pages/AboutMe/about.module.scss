@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,105 +7,79 @@
   min-height: 100%;
   width: 100%;
   max-width: 1200px;
-  padding-top: 20px;
   margin: 0 auto;
-  background: var(--grey--200);
+
+  @include media-breakpoint-down('maxXl') {
+    margin: 0 12px;
+  }
 
   &_gretting {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--white--100);
-    background: var(--grey--200);
-    width: 100%;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: var(--grey--400);
+    border-left: 10px solid var(--aqua--200); 
+    background: var(--grey--100);
 
-    &_text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 20px;
-      line-height: 24px;
-      margin-left: 10px;
-      max-width: 60%;
-      padding: 10px;
-      background: var(--black--100);
-      border-radius: 30px 30px 0 30px;
-
-      p {
-        margin: 4px;
-        font-size: 16px;
-        line-height: 18px;
-      }
-
-      span {
-        color: var(--aqua--200);
-      }
+    p {
+      color: var(--white--100);
+      margin: 4px;
+      font-size: 16px;
+      line-height: 18px;
     }
 
-    &_image {
-      max-width: 50%;
-      font-size: 0;
-      line-height: 0;
-      margin: 10px;
-
-      img {
-        max-width: 100%;
-        max-height: 40vh;
-      }
+    span {
+      color: var(--aqua--200);
     }
   }
 
   &_about {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
     max-width: 1200px;
-    margin: 10px auto;
+    margin: 24px auto;
+    margin-top: 32px;
 
-    &_block {
-      cursor: pointer;
-      max-width: 25%;
-      border-top: 3px solid rgb(189, 188, 188);
-      border-left: 3px solid rgb(189, 188, 188);
-      margin: 4px;
-      font-weight: bold;
-      background: var(--aqua--200);
-      border-radius: 10px;
-      box-shadow: 4px 4px 10px var(--black--100);
-
-      img {
-        max-width: 50%;
-        max-height: 50%;
-      }
-
-      &:hover, &:focus {
-        background: #fdabbe;
-      } 
-
-      &:disabled {
-        cursor: auto;
-        color: rgb(211, 210, 210);
-        background: var(--grey--400);
-      }
+    input[type="radio"] {
+      display: none;
     }
+  
+    label {
+      display: inline-block;
+      text-align: center;
+      min-width: 120px;
+      padding: 4px 8px;
+      cursor: pointer;
+      border: 2px solid;
+      border-radius: 4px;
+      border-color: var(--border);
+    }
+  
+    input[type="radio"]:checked+label {
+      text-shadow: 1px 1px var(--black--100);
+      background-image: var(--gradient);
+      border: 2px solid var(--black--100);
+    }
+  
+    label:hover {
+      border: 2px solid var(--purple--100);
+    }
+
   }
+
 
   &_biografy {
     display: flex;
     flex-direction: column;
     text-align: left;
     color: var(--aqua--200);
-    background: var(--grey--200);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto; 
-
-    h3 {
-      margin-inline: 20px;
-      margin-block: 4px;
-      text-align: right;
-    }
 
     &_list {
       display: flex;
@@ -112,12 +88,16 @@
       list-style: none;
       color: var(--white--100);
       padding: 4px;
-      margin-inline: 10px;
-      margin-top: 0;
     }
 
     li {
       margin-block: 4px;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid;
+      border-color: var(--grey--400);
+      border-left: 10px solid var(--aqua--200); 
+      background: var(--grey--100);
 
       &:nth-child(2n) {
         color: rgb(186, 252, 230);

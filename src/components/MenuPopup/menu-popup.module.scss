@@ -12,10 +12,8 @@
   
     &:hover, &:focus {
       border-radius: 8px;
-      border-bottom: 2px solid var(--aqua--200);
-      border-right: 2px solid var(--aqua--200);
-      border-top: 2px solid var(--aqua--100);
-      border-left: 2px solid var(--aqua--100);
+      border: 2px solid;
+      border-color: var(--border);
       background-color: var(--grey--100);
     }
   }

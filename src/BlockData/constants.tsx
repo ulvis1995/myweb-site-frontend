@@ -1,10 +1,12 @@
-import telegram from '../img/social/telegram_logo_icon_168692.svg';
-import vk from '../img/social/vk-2173.svg';
-import gmail from '../img/social/icons8-gmail.svg';
-import mailru from '../img/social/mail_ru_logo_icon_147267.svg';
-import git from '../img/social/icons8-github.svg';
-import hh from '../img/social/hh.ru__min_.svg';
-import habr from '../img/social/habrahabr-ru-icon.png';
+import {
+  GitIcon,
+  GmailIcon,
+  HabrIcon,
+  HhIcon,
+  MailRuIcon,
+  TelegramIcon,
+  VkIcon,
+} from '../img/icons';
 
 export const menuList: { id: number; link: string; text: string }[] = [
   {
@@ -52,13 +54,15 @@ export const contacts = [
         id: 'telegram',
         title: 'Telegram',
         ref: 'https://t.me/vitaparamonova',
-        image: telegram,
+        image: <TelegramIcon />,
+        text: '@vitaparamonova',
       },
       {
         id: 'vk',
         title: 'Vkontakte',
         ref: 'https://vk.com/id135541653',
-        image: vk,
+        image: <VkIcon />,
+        text: 'id135541653',
       },
     ],
   },
@@ -69,13 +73,15 @@ export const contacts = [
         id: 'gmail',
         title: 'Gmail',
         ref: 'mailto:violettapar1995@gmail.com',
-        image: gmail,
+        image: <GmailIcon />,
+        text: 'violettapar1995@gmail.com',
       },
       {
         id: 'mailru',
         title: 'Mail.ru',
         ref: 'mailto:viopar@mail.ru',
-        image: mailru,
+        image: <MailRuIcon />,
+        text: 'viopar@mail.ru',
       },
     ],
   },
@@ -86,19 +92,22 @@ export const contacts = [
         id: 'gitHub',
         title: 'GitHub',
         ref: 'https://github.com/ulvis1995',
-        image: git,
+        image: <GitIcon />,
+        text: 'https://github.com/ulvis1995',
       },
       {
         id: 'hh',
         title: 'HeadHunter.ru',
         ref: 'https://kazan.hh.ru/resume/c6de691dff0b1c697f0039ed1f6d49506d7858',
-        image: hh,
+        image: <HhIcon />,
+        text: 'https://kazan.hh.ru/resume/c6de691dff0b1c697f0039ed1f6d49506d7858',
       },
       {
         id: 'habr',
         title: 'Habr',
         ref: 'https://career.habr.com/violettaparamonova',
-        image: habr,
+        image: <HabrIcon />,
+        text: 'https://career.habr.com/violettaparamonova',
       },
     ],
   },
