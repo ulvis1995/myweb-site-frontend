@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineIcon } from '../../img/icons';
+import { LineIcon } from '../../assets/image/icons';
 import st from './header-block.module.scss';
 
 type TProps = {

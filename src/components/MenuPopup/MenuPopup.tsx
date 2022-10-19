@@ -1,7 +1,7 @@
 import React from 'react';
 import { Drawer } from 'antd';
-import { LogoIcon } from '../../img/icons';
-import { ExitIcon } from '../../img/icons/ExitIcon';
+import { LogoIcon } from '../../assets/image/icons';
+import { ExitIcon } from '../../assets/image/icons/ExitIcon';
 import st from './menu-popup.module.scss';
 import { Link } from 'react-router-dom';
 import { menuList } from '../../BlockData/constants';

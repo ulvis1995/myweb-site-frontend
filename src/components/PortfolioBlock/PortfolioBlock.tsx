@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { projectListType } from '../../BlockData/portfolioData';
-import { LineIcon } from '../../img/icons';
+import { LineIcon } from '../../assets/image/icons';
 import HeaderBlockLink from '../HeaderBlock/HeaderBlockLink';
 import HeaderBlockText from '../HeaderBlock/HeaderBlockText';
 import PortfolioCard from '../PortfolioCard/PortfolioCard';

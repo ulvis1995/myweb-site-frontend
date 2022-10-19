@@ -1,5 +1,5 @@
 import React from 'react';
-import myphoto from '../../img/photo.png';
+import myphoto from '../../assets/image/photo.png';
 import st from './gretting.module.scss';
 
 const GrettingBlock = () => {

@@ -1,4 +1,4 @@
-import lad from '../img/news/lad24-official.png';
+import lad from '../assets/image/news/lad24-official.png';
 
 interface newsListType {
   id: number,
