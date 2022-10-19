@@ -6,7 +6,7 @@ import {
   MailRuIcon,
   TelegramIcon,
   VkIcon,
-} from '../img/icons';
+} from '../assets/image/icons';
 
 export const menuList: { id: number; link: string; text: string }[] = [
   {

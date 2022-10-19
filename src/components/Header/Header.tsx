@@ -1,8 +1,8 @@
 import React from 'react';
 import st from './header.module.scss';
 import { Link } from 'react-router-dom';
-import { LogoIcon } from '../../img/icons';
-import { MenuIcon } from '../../img/icons';
+import { LogoIcon } from '../../assets/image/icons';
+import { MenuIcon } from '../../assets/image/icons';
 import { menuList } from '../../BlockData/constants';
 
 type TProps = {

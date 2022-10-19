@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LineIcon } from '../../img/icons';
+import { LineIcon } from '../../assets/image/icons';
 import st from './header-block.module.scss';
 
 type TProps = {

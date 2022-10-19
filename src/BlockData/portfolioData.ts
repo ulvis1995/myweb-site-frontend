@@ -1,19 +1,19 @@
-import image1 from '../img/projects_card/pokedex.JPG';
-import image2 from '../img/projects_card/kinopoinsk.JPG';
-import image3 from '../img/projects_card/mini-game.JPG';
+import image1 from '../assets/image/projects_card/pokedex.JPG';
+import image2 from '../assets/image/projects_card/kinopoinsk.JPG';
+import image3 from '../assets/image/projects_card/mini-game.JPG';
 
-import pokedex from '../img/projects_card/pokedex.JPG';
-import kinopoisk from '../img/projects_card/kinopoinsk.JPG';
-import rpg_battle from '../img/projects_card/mini-game.JPG';
-import fitness from '../img/projects_card/fintess.JPG';
-import tatoo from '../img/projects_card/tatoo.JPG';
-import todo from '../img/projects_card/todo.JPG';
-import lotr from '../img/projects_card/lotr.JPG';
-import excel from '../img/projects_card/excel.JPG';
-import pizza from '../img/projects_card/pizza.JPG';
-import blog from '../img/projects_card/blog.JPG';
-import link from '../img/projects_card/links.JPG';
-import store from '../img/projects_card/store.JPG'; 
+import pokedex from '../assets/image/projects_card/pokedex.JPG';
+import kinopoisk from '../assets/image/projects_card/kinopoinsk.JPG';
+import rpg_battle from '../assets/image/projects_card/mini-game.JPG';
+import fitness from '../assets/image/projects_card/fintess.JPG';
+import tatoo from '../assets/image/projects_card/tatoo.JPG';
+import todo from '../assets/image/projects_card/todo.JPG';
+import lotr from '../assets/image/projects_card/lotr.JPG';
+import excel from '../assets/image/projects_card/excel.JPG';
+import pizza from '../assets/image/projects_card/pizza.JPG';
+import blog from '../assets/image/projects_card/blog.JPG';
+import link from '../assets/image/projects_card/links.JPG';
+import store from '../assets/image/projects_card/store.JPG'; 
 
 
 export interface projectListType {
