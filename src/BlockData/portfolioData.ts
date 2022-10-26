@@ -187,7 +187,7 @@ export const courseList: projectListType = {
     id: 3,
     name: 'Блог Mern серверная часть',
     gitUrl: 'https://github.com/ulvis1995/blog-mern-by-archakov',
-    deploy: 'https://blog-mern-archakov.herokuapp.com/',
+    deploy: null,
     description: 'Это веб-приложение создано по онлайн-курсу от Archakov Blog и состоит из двух частей - серверной и фронтэнда, здесь представлена ссылка на серверную часть. В общем приложение представляет собой блог с возможностью авторизации, создания, редактирования и удаления постов',
     imgUrl: null,
     technology: ['HTML', 'SCSS', 'React', 'NodeJS', 'MongoDB']
@@ -196,7 +196,7 @@ export const courseList: projectListType = {
     id: 4,
     name: 'Блог Mern клиентская часть',
     gitUrl: 'https://github.com/ulvis1995/blog-mern-front-archakov',
-    deploy: 'https://blog-mern-front-archakov-655do7xlm-ulvis1995.vercel.app/',
+    deploy: null,
     description: 'Это веб-приложение создано по онлайн-курсу от Archakov Blog и состоит из двух частей - серверной и фронтэнда, здесь представлена ссылка на клиентскую часть. В общем приложение представляет собой блог с возможностью авторизации, создания, редактирования и удаления постов.',
     imgUrl: blog,
     technology: ['HTML', 'SCSS', 'React', 'NodeJS', 'MongoDB']
