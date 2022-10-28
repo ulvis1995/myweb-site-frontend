@@ -1,9 +1,9 @@
 import React from 'react';
-import PortfolioBlock from '../../components/PortfolioBlock/PortfolioBlock';
+import PortfolioBlock from '../../components/PortfolioComponents/PortfolioBlock/PortfolioBlock';
 import st from './portfolio-page.module.scss';
 import { courseList, studingList } from '../../BlockData/portfolioData';
 
-const PortfolioPage: React.FC = () => {
+export const PortfolioPage = () => {
   return (
     <main className="wrapper">
       <div className={st.container}>
@@ -13,5 +13,3 @@ const PortfolioPage: React.FC = () => {
     </main>
   );
 };
-
-export default PortfolioPage;

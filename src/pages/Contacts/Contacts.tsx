@@ -4,7 +4,7 @@ import { contacts } from '../../BlockData/constants';
 
 type Props = {};
 
-const Contacts: React.FC = ({}: Props) => {
+export const Contacts = ({}: Props) => {
   return (
     <main className="wrapper">
       <div className={st.container}>
@@ -27,5 +27,3 @@ const Contacts: React.FC = ({}: Props) => {
     </main>
   );
 };
-
-export default Contacts;

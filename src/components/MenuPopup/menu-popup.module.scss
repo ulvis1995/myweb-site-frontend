@@ -1,5 +1,11 @@
 .container {
-
+  .title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 24px;
+  }
   .logo_block {
     display: flex;
     flex-wrap: nowrap;
@@ -94,7 +100,7 @@
             border-color: var(--border);
           }
           }
-        }
+      }
     }
 
     .ant-drawer-footer {

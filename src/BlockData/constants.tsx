@@ -8,6 +8,8 @@ import {
   VkIcon,
 } from '../assets/image/icons';
 
+export const baseurl = 'http://localhost:5000';
+
 export const menuList: { id: number; link: string; text: string }[] = [
   {
     id: 1,

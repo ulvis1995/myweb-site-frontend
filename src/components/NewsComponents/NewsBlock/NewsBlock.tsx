@@ -1,6 +1,6 @@
 import React from 'react';
-import { newsList } from '../../BlockData/newsData';
-import HeaderBlockLink from '../HeaderBlock/HeaderBlockLink';
+import { newsList } from '../../../BlockData/newsData';
+import HeaderBlockLink from '../../HeaderBlock/HeaderBlockLink';
 import NewsCard from '../NewsCard/NewsCard';
 
 function NewsBlock() {

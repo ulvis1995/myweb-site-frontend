@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { LinkIcon } from '../../assets/image/icons/LinkIcon';
+import { LinkIcon } from '../../../assets/image/icons/LinkIcon';
 import st from './portfolio-card.module.scss';
 
 interface CardProps {

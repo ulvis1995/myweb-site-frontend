@@ -1,10 +1,12 @@
 import React from 'react';
 import { Drawer } from 'antd';
-import { LogoIcon } from '../../assets/image/icons';
+import { EnterIcon, LogoIcon } from '../../assets/image/icons';
 import { ExitIcon } from '../../assets/image/icons/ExitIcon';
 import st from './menu-popup.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { menuList } from '../../BlockData/constants';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { loginAdmin } from '../../store/slices/UserSlice';
 
 type TProps = {
   clickDrawer: () => void;
@@ -12,17 +14,37 @@ type TProps = {
 };
 
 const MenuPopup = ({ clickDrawer, open }: TProps) => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { isAdmin } = useAppSelector(({ user }) => user);
+
+  const handleExit = () => {
+    dispatch(loginAdmin(false));
+    clickDrawer();
+  };
+
   return (
     <div className={st.container}>
       <Drawer
         title={
-          <Link to="/" className={st.logo_block} onClick={clickDrawer}>
-            <div className={st.avatar}>
-              <LogoIcon />
-            </div>
+          <div className={st.title}>
+            <Link to="/" className={st.logo_block} onClick={clickDrawer}>
+              <div className={st.avatar}>
+                <LogoIcon />
+              </div>
 
-            <h2>Vita</h2>
-          </Link>
+              <h2>Vita</h2>
+            </Link>
+            {isAdmin ? (
+              <Link to="/" onClick={handleExit}>
+                Выйти
+              </Link>
+            ) : (
+              <Link to="auth" onClick={clickDrawer}>
+                Войти
+              </Link>
+            )}
+          </div>
         }
         closeIcon={<ExitIcon />}
         placement="top"
@@ -30,12 +52,21 @@ const MenuPopup = ({ clickDrawer, open }: TProps) => {
         open={open}
         height="70%"
         getContainer={false}>
-        <ul className={st.container_list}>
+        <ul>
           {menuList.map((item) => (
             <Link to={item.link} key={item.link} onClick={clickDrawer}>
               <li>{item.text}</li>
             </Link>
           ))}
+          {isAdmin ? (
+            <li>
+              <Link to="admin" onClick={clickDrawer}>
+                Admin
+              </Link>
+            </li>
+          ) : (
+            ''
+          )}
         </ul>
       </Drawer>
     </div>

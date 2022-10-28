@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  padding: 20px;
+  margin: auto;
+  background: var(--aqua--100);
+
+  h2 {
+    color: var(--black--100);
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import st from './new-page.module.scss';
 import { newsList } from '../../BlockData/newsData';
-import NewsCard from '../../components/NewsCard/NewsCard';
+import NewsCard from '../../components/NewsComponents/NewsCard/NewsCard';
 
-const NewsPage: React.FC = () => {
+export const NewsPage = () => {
   return (
     <main className="wrapper">
       <div className={st.container}>
@@ -24,5 +24,3 @@ const NewsPage: React.FC = () => {
     </main>
   );
 };
-
-export default NewsPage;

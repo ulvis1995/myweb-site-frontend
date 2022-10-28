@@ -3,7 +3,7 @@ import st from './about.module.scss';
 import { aboutData } from '../../BlockData/aboutData';
 import AboutItem from './AboutItem';
 
-const About: React.FC = () => {
+export const About = () => {
   const [openBlock, setOpenBlock] = React.useState<number>(1);
   const chooseBlock = aboutData.find((block) => block.id === openBlock);
 
@@ -57,5 +57,3 @@ const About: React.FC = () => {
     </main>
   );
 };
-
-export default About;
