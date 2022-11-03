@@ -1,6 +1,7 @@
 import React from 'react';
 import st from './news-card.module.scss';
 import imgNone from '../../../assets/image/news/news.png';
+import { baseurl } from '../../../BlockData/constants';
 
 interface NewsProps {
   title: string;
@@ -13,7 +14,7 @@ const NewsCard: React.FC<NewsProps> = (props) => {
   return (
     <div className={`block-item`}>
       <div className={`block-item_image`}>
-        <img src={props.imgUrl !== null ? props.imgUrl : imgNone} />
+        <img src={props.imgUrl !== null ? `${baseurl}/${props.imgUrl}` : imgNone} />
       </div>
       <div className={`block-item_info ${st.news}`}>
         <h3>{props.title}</h3>

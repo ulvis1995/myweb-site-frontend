@@ -1,40 +1,44 @@
 import React from 'react';
 import st from './create-about.module.scss';
 import { Form, Input, Button, Select } from 'antd';
+import { useAddAboutMutation, useUpdateAboutMutation } from '../../../store/Api/AboutApi';
+import { useGetTypeAboutQuery } from '../../../store/Api/TypeApi';
 
 const { TextArea } = Input;
 
-const onFinish = (values: any) => {
-  console.log(values);
-};
+interface TProps {
+  aboutId?: string | null;
+  chooseAbout?: { id: string; text: string; type: { id: string; title: string } };
+  children: string;
+  handleEdit?: (id: string | null) => void;
+}
 
-const CreateAbout = () => {
-  const typeProject = [
-    {
-      id: 1,
-      title: 'Еще обо мне',
-    },
-    {
-      id: 2,
-      title: 'Планы',
-    },
-    {
-      id: 3,
-      title: 'Образование',
-    },
-    {
-      id: 4,
-      title: 'Увлечения',
-    },
-    {
-      id: 5,
-      title: 'Опыт',
-    },
-  ];
+const CreateAbout = (props: TProps) => {
+  const [addAbout] = useAddAboutMutation();
+  const [updateAbout] = useUpdateAboutMutation();
+  const [form] = Form.useForm();
+  const { data } = useGetTypeAboutQuery('');
+
+  React.useEffect(() => {
+    console.log(props.chooseAbout);
+    if (props.chooseAbout) {
+      form.setFieldValue('text', props.chooseAbout?.text);
+      form.setFieldValue('type', props.chooseAbout?.type.title);
+    }
+  }, [props.chooseAbout]);
+
+  const onFinish = async (values: any) => {
+    props.children === 'Добавить информацию'
+      ? await addAbout(values).unwrap()
+      : await updateAbout({ body: values, id: props.aboutId }).unwrap();
+    form.resetFields(['text', 'type']);
+    props.handleEdit && props.handleEdit(null);
+    console.log(values);
+  };
 
   return (
     <div className={st.about_form}>
-      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} onFinish={onFinish}>
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} onFinish={onFinish} form={form}>
         <Form.Item
           label="Текст"
           name="text"
@@ -46,7 +50,7 @@ const CreateAbout = () => {
           rules={[{ required: true, message: 'Выберете тип' }]}
           name="type">
           <Select>
-            {typeProject.map((type) => (
+            {data?.map((type: any) => (
               <Select.Option value={type.id} key={type.id}>
                 {type.title}
               </Select.Option>
@@ -55,7 +59,7 @@ const CreateAbout = () => {
         </Form.Item>
         <Form.Item className={st.row_button}>
           <Button type="primary" htmlType="submit">
-            Добавить информацию
+            {props.children}
           </Button>
         </Form.Item>
       </Form>

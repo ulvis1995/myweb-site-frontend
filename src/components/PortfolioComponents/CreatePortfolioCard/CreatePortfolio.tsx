@@ -1,15 +1,38 @@
 import React from 'react';
 import st from './create-portfolio.module.scss';
 import { Form, Input, Button, Upload, Checkbox, Select } from 'antd';
+import type { UploadProps } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import {
+  useAddPortfolioMutation,
+  useGetPortfolioQuery,
+  useUpdatePortfolioMutation,
+} from '../../../store/Api/PortfolioApi';
+import { baseurl } from '../../../BlockData/constants';
 
 const { TextArea } = Input;
 
-const onFinish = (values: any) => {
-  console.log(values);
-};
+interface TProps {
+  portfolioId?: string | null;
+  chooseProject?: {
+    id: string;
+    imgUrl: string;
+    type: { id: string; title: string };
+    deploy: string | null;
+    description: string;
+    gitUrl: string;
+    is_best_work: boolean;
+    name: string;
+    technology: string[];
+  };
+  children: string;
+  handleEdit?: (id: string | null) => void;
+}
 
-const CreatePortfolio = () => {
+const CreatePortfolio = (props: TProps) => {
+  const [form] = Form.useForm();
+  const [addProject] = useAddPortfolioMutation();
+  const [updateProject] = useUpdatePortfolioMutation();
   const typeProject = [
     {
       id: 1,
@@ -21,9 +44,70 @@ const CreatePortfolio = () => {
     },
   ];
 
+  console.log(props.chooseProject);
+  const propsUpload: UploadProps = {
+    defaultFileList: props.chooseProject?.imgUrl
+      ? [
+          {
+            uid: '1',
+            name: `${props.chooseProject?.imgUrl}`,
+            status: 'done',
+            url: `${baseurl}/${props.chooseProject?.imgUrl}`,
+          },
+        ]
+      : [],
+    listType: 'picture-card',
+    beforeUpload: () => false,
+  };
+
+  React.useEffect(() => {
+    if (props.chooseProject) {
+      if (props.chooseProject?.imgUrl !== null || undefined) {
+        form.setFieldValue(
+          'imgUrl',
+          (propsUpload.defaultFileList = [
+            {
+              uid: '1',
+              name: `${props.chooseProject?.imgUrl}`,
+              status: 'done',
+              url: `${baseurl}/${props.chooseProject?.imgUrl}`,
+            },
+          ]),
+        );
+      }
+
+      form.setFieldValue('name', props.chooseProject?.name);
+      form.setFieldValue('deploy', props.chooseProject?.deploy);
+      form.setFieldValue('description', props.chooseProject?.description);
+      form.setFieldValue('gitUrl', props.chooseProject?.gitUrl);
+      form.setFieldValue('type_project_id', props.chooseProject?.type.title);
+      form.setFieldValue('is_best_work', props.chooseProject?.is_best_work);
+      form.setFieldValue('technology', props.chooseProject?.technology.join(','));
+    }
+  }, [props.chooseProject]);
+
+  const onFinish = async (values: any) => {
+    const formData = new FormData();
+    formData.append('deploy', values.deploy);
+    formData.append('description', values.description);
+    formData.append('gitUrl', values.gitUrl);
+    formData.append('name', values.name);
+    formData.append('technology', values.technology);
+    formData.append('type_project_id', values.type_project_id);
+    formData.append('is_best_work', values.is_best_work);
+    values.imgUrl && formData.append('imgUrl', values.imgUrl.file);
+    props.children === 'Добавить в портфолио'
+      ? await addProject(formData).unwrap()
+      : await updateProject({ body: formData, id: props.portfolioId }).unwrap();
+
+    form.resetFields();
+    props.handleEdit && props.handleEdit(null);
+    console.log(values);
+  };
+
   return (
     <div className={st.portfolio_form}>
-      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} onFinish={onFinish}>
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} onFinish={onFinish} form={form}>
         <Form.Item
           label="Название проекта"
           name="name"
@@ -50,7 +134,7 @@ const CreatePortfolio = () => {
           valuePropName="fileList[]"
           name="imgUrl"
           rules={[{ required: true, message: 'Добавьте изображение' }]}>
-          <Upload listType="picture-card">
+          <Upload {...propsUpload}>
             <div className={st.upload}>
               <PlusOutlined />
               <div>Загрузить файл</div>
@@ -66,7 +150,7 @@ const CreatePortfolio = () => {
         <Form.Item
           label="Тип проекта"
           rules={[{ required: true, message: 'Выберете тип' }]}
-          name="type">
+          name="type_project_id">
           <Select>
             {typeProject.map((type) => (
               <Select.Option value={type.id} key={type.id}>
@@ -77,7 +161,7 @@ const CreatePortfolio = () => {
         </Form.Item>
         <Form.Item className={st.row_button}>
           <Button type="primary" htmlType="submit">
-            Добавить в портфолио
+            {props.children}
           </Button>
         </Form.Item>
       </Form>

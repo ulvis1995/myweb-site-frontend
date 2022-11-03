@@ -11,6 +11,7 @@ type TState = {
     role: string;
   };
   isAdmin: boolean;
+  token: string;
 };
 
 const initialState: TState = {
@@ -21,7 +22,8 @@ const initialState: TState = {
     id: '',
     role: 'USER',
   },
-  isAdmin: true,
+  isAdmin: false,
+  token: '',
 };
 
 export const fetchUserLogin = createAsyncThunk<
@@ -32,7 +34,9 @@ export const fetchUserLogin = createAsyncThunk<
   try {
     const { data } = await $host.post('api/user/login', { email, password });
     localStorage.setItem('token', data.token);
-    return jwt_decode(data.token);
+    const user = jwt_decode(data.token);
+    const token = data.token;
+    return { user, token };
   } catch (e: any) {
     if (!e.response) {
       throw e;
@@ -51,7 +55,8 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUserLogin.fulfilled, (state, action) => {
-      state.user = action.payload;
+      state.user = action.payload.user;
+      state.token = action.payload.token;
     });
   },
 });

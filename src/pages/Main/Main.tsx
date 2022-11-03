@@ -6,9 +6,19 @@ import GrettingBlock from '../../components/Gretting/GrettingBlock';
 import HardSkillsBlock from '../../components/HardSkillsBlock/HardSkillsBlock';
 import NewsBlock from '../../components/NewsComponents/NewsBlock/NewsBlock';
 
-import axios from '../../axios';
+import { useAppDispatch } from '../../app/hooks';
+import { useGetNewsQuery } from '../../store/Api/NewsApi';
+import { listNews } from '../../store/slices/NewsSlice';
 
 export const Main = () => {
+  const dispatch = useAppDispatch();
+  const { data } = useGetNewsQuery('');
+
+  // React.useEffect(() => {
+  //   dispatch(listNews(data));
+  // }, []);
+  // console.log(data);
+
   return (
     <main className="wrapper">
       <div className={st.container}>

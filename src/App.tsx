@@ -9,7 +9,16 @@ import MenuPopup from './components/MenuPopup/MenuPopup';
 const App = () => {
   const [open, setOpen] = React.useState(false);
 
-  const clickDrawer = () => setOpen(!open);
+  const clickDrawer = () => {
+    setOpen(!open);
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <div className="App">
