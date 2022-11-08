@@ -1,20 +1,14 @@
 import React from 'react';
-import { Drawer } from 'antd';
-import { EnterIcon, LogoIcon } from '../../assets/image/icons';
-import { ExitIcon } from '../../assets/image/icons/ExitIcon';
 import st from './menu-popup.module.scss';
-import { Link, useNavigate } from 'react-router-dom';
-import { menuList } from '../../BlockData/constants';
+import { Link } from 'react-router-dom';
+import { Drawer } from 'antd';
+import { ExitIcon, LogoIcon } from '../../assets/image/icons';
+import { menuList } from '../../constants/constants';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { loginAdmin } from '../../store/slices/UserSlice';
+import { MenuPopupProps } from '../../types/typesProps';
 
-type TProps = {
-  clickDrawer: () => void;
-  open: boolean;
-};
-
-const MenuPopup = ({ clickDrawer, open }: TProps) => {
-  const navigate = useNavigate();
+const MenuPopup = ({ clickDrawer, open }: MenuPopupProps) => {
   const dispatch = useAppDispatch();
   const { isAdmin } = useAppSelector(({ user }) => user);
 
@@ -32,7 +26,6 @@ const MenuPopup = ({ clickDrawer, open }: TProps) => {
               <div className={st.avatar}>
                 <LogoIcon />
               </div>
-
               <h2>Vita</h2>
             </Link>
             {isAdmin ? (

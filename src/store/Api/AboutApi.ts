@@ -1,4 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
+import type { About } from '../../types/typesApi';
 import { baseQuery } from './BaseQuery';
 
 export const aboutApi = createApi({
@@ -6,15 +7,18 @@ export const aboutApi = createApi({
   tagTypes: ['About'],
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    getAbout: builder.query({
+    getAbout: builder.query<About[], void>({
       query: () => 'api/about',
       providesTags: (result) =>
         result
-          ? [...result.map(({ id }: any) => ({ type: 'About', id })), { type: 'About', id: 'LIST' }]
+          ? [
+              ...result.map(({ id }) => ({ type: 'About' as const, id })),
+              { type: 'About', id: 'LIST' },
+            ]
           : [{ type: 'About', id: 'LIST' }],
     }),
 
-    addAbout: builder.mutation({
+    addAbout: builder.mutation<About, { text: string; type: string }>({
       query: (body) => ({
         url: 'api/about',
         method: 'POST',
@@ -23,22 +27,25 @@ export const aboutApi = createApi({
       invalidatesTags: ['About'],
     }),
 
-    updateAbout: builder.mutation({
-      query: (code: { body: any; id: any }) => ({
+    updateAbout: builder.mutation<
+      About,
+      Partial<{ body: { text: string; type: string }; id: string }>
+    >({
+      query: (code: { body: { text: string; type: string }; id: string }) => ({
         url: `api/about/${code.id}`,
         method: 'PATCH',
         body: code.body,
       }),
-      invalidatesTags: (arg) => [{ type: 'About', id: arg.id }],
+      invalidatesTags: (arg) => [{ type: 'About', id: arg?.id }],
     }),
 
-    deleteAbout: builder.mutation({
+    deleteAbout: builder.mutation<About, { id: string }>({
       query: (body) => ({
         url: 'api/about',
         method: 'DELETE',
         body: body,
       }),
-      invalidatesTags: (arg) => [{ type: 'About', id: arg.id }],
+      invalidatesTags: (arg) => [{ type: 'About', id: arg?.id }],
     }),
   }),
 });

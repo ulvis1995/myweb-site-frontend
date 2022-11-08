@@ -1,4 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
+import type { News } from '../../types/typesApi';
 import { baseQuery } from './BaseQuery';
 
 export const newsApi = createApi({
@@ -6,15 +7,18 @@ export const newsApi = createApi({
   tagTypes: ['News'],
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    getNews: builder.query({
+    getNews: builder.query<News[], void>({
       query: () => 'api/news',
       providesTags: (result) =>
         result
-          ? [...result.map(({ id }: any) => ({ type: 'News', id })), { type: 'News', id: 'LIST' }]
+          ? [
+              ...result.map(({ id }) => ({ type: 'News' as const, id })),
+              { type: 'News', id: 'LIST' },
+            ]
           : [{ type: 'News', id: 'LIST' }],
     }),
 
-    addNews: builder.mutation({
+    addNews: builder.mutation<News, FormData>({
       query: (body) => ({
         url: 'api/news',
         method: 'POST',
@@ -23,22 +27,25 @@ export const newsApi = createApi({
       invalidatesTags: ['News'],
     }),
 
-    updateNews: builder.mutation({
-      query: (code: { body: any; id: any }) => ({
+    updateNews: builder.mutation<
+      News,
+      Partial<{ body: FormData; id: string }> & Pick<{ body: FormData; id: string }, 'id'>
+    >({
+      query: (code: { body: FormData; id: string }) => ({
         url: `api/news/${code.id}`,
         method: 'PATCH',
         body: code.body,
       }),
-      invalidatesTags: (arg) => [{ type: 'News', id: arg.id }],
+      invalidatesTags: (arg) => [{ type: 'News', id: arg?.id }],
     }),
 
-    deleteNews: builder.mutation({
+    deleteNews: builder.mutation<News, { id: string }>({
       query: (body) => ({
         url: 'api/news',
         method: 'DELETE',
         body: body,
       }),
-      invalidatesTags: (arg) => [{ type: 'News', id: arg.id }],
+      invalidatesTags: (arg) => [{ type: 'News', id: arg?.id }],
     }),
   }),
 });

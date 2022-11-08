@@ -3,7 +3,7 @@ import st from './header.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { EnterIcon, LogoIcon } from '../../assets/image/icons';
 import { MenuIcon } from '../../assets/image/icons';
-import { menuList } from '../../BlockData/constants';
+import { menuList } from '../../constants/constants';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { loginAdmin } from '../../store/slices/UserSlice';
 import { paths } from '../../app/AppRouter';

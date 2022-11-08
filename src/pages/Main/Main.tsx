@@ -1,23 +1,17 @@
 import React from 'react';
 import st from './main.module.scss';
-import { projectList } from '../../BlockData/portfolioData';
-import PortfolioBlock from '../../components/PortfolioComponents/PortfolioBlock/PortfolioBlock';
+import PortfolioBlock from '../../components/PortfolioComponents/PortfolioBlock';
 import GrettingBlock from '../../components/Gretting/GrettingBlock';
 import HardSkillsBlock from '../../components/HardSkillsBlock/HardSkillsBlock';
-import NewsBlock from '../../components/NewsComponents/NewsBlock/NewsBlock';
-
-import { useAppDispatch } from '../../app/hooks';
-import { useGetNewsQuery } from '../../store/Api/NewsApi';
-import { listNews } from '../../store/slices/NewsSlice';
+import NewsBlock from '../../components/NewsComponents/NewsBlock';
+import { useGetPortfolioQuery } from '../../store/Api';
 
 export const Main = () => {
-  const dispatch = useAppDispatch();
-  const { data } = useGetNewsQuery('');
+  const { data } = useGetPortfolioQuery();
 
-  // React.useEffect(() => {
-  //   dispatch(listNews(data));
-  // }, []);
-  // console.log(data);
+  const projectList = data
+    ?.filter((project) => project.is_best_work === true)
+    .sort((a, b) => Number(a.id) - Number(b.id));
 
   return (
     <main className="wrapper">

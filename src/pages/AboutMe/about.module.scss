@@ -57,6 +57,7 @@
       border: 2px solid;
       border-radius: 4px;
       border-color: var(--border);
+      margin-block: 4px;
     }
   
     input[type="radio"]:checked+label {

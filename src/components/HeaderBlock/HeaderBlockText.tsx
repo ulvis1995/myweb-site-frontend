@@ -3,7 +3,7 @@ import { LineIcon } from '../../assets/image/icons';
 import st from './header-block.module.scss';
 
 type TProps = {
-  children: string;
+  children?: string;
 };
 
 const HeaderBlockText = ({ children }: TProps) => {

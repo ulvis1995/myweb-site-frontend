@@ -1,6 +1,6 @@
 import React from 'react';
 import st from './footer.module.scss';
-import { contacts } from '../../BlockData/constants';
+import { contacts } from '../../constants/constants';
 
 const Footer: React.FC = () => {
   return (

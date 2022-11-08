@@ -24,7 +24,7 @@ export type TRoute = {
 export const configRoutes: TRoute[] = [
   {
     id: '1',
-    isPrivate: true,
+    isPrivate: false,
     element: Pages.Main,
     path: paths.MAIN,
   },

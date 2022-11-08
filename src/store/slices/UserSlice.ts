@@ -1,20 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { $authHost, $host } from '../../http';
+import { $host } from '../../http';
 import jwt_decode from 'jwt-decode';
+import { UserState } from '../../types/typesApi';
 
-type TState = {
-  user: {
-    email: string;
-    exp: number | null;
-    iat: number | null;
-    id: string;
-    role: string;
-  };
-  isAdmin: boolean;
-  token: string;
-};
-
-const initialState: TState = {
+const initialState: UserState = {
   user: {
     email: '',
     exp: null,
@@ -24,6 +13,7 @@ const initialState: TState = {
   },
   isAdmin: false,
   token: '',
+  error: undefined,
 };
 
 export const fetchUserLogin = createAsyncThunk<
@@ -41,7 +31,7 @@ export const fetchUserLogin = createAsyncThunk<
     if (!e.response) {
       throw e;
     }
-    return rejectWithValue('User not loaded');
+    return rejectWithValue(e.response.data.message);
   }
 });
 
@@ -57,6 +47,10 @@ const userSlice = createSlice({
     builder.addCase(fetchUserLogin.fulfilled, (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
+      state.error = undefined;
+    });
+    builder.addCase(fetchUserLogin.rejected, (state, action) => {
+      state.error = action.payload;
     });
   },
 });

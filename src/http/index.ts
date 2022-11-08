@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseurl } from '../BlockData/constants';
+import { baseurl } from '../constants/constants';
 
 const $host = axios.create({
   baseURL: baseurl,

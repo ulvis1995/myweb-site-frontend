@@ -1,10 +1,6 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import userReducer from './slices/UserSlice';
-import { newsApi } from './Api/NewsApi';
-import { aboutApi } from './Api/AboutApi';
-import { portfolioApi } from './Api/PortfolioApi';
-import { typeApi } from './Api/TypeApi';
-import { typeAboutApi } from './Api/TypeAboutApi';
+import { newsApi, aboutApi, portfolioApi, typeApi } from './Api';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -12,7 +8,6 @@ const rootReducer = combineReducers({
   [aboutApi.reducerPath]: aboutApi.reducer,
   [portfolioApi.reducerPath]: portfolioApi.reducer,
   [typeApi.reducerPath]: typeApi.reducer,
-  // [typeAboutApi.reducerPath]: typeAboutApi.reducer,
 });
 
 const store = configureStore({
