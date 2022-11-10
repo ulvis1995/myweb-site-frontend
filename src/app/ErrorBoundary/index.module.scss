@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 10px;
+  h2 {
+    font-size: 28px;
+    line-height: 32px;
+    text-align: center;
+  }
+  a {
+    padding: 12px;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    color: var(--white--100);
+    background-color: var(--aqua--100);
+    border-radius: 12px;
+    transition: 0.3s;
+    &:hover, &:focus {
+      background-color: var(--aqua--200);
+    }
+  }
+}
