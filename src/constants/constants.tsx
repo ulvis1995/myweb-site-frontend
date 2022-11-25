@@ -8,7 +8,7 @@ import {
   VkIcon,
 } from '../assets/image/icons';
 
-export const baseurl = 'http://localhost:5000';
+export const baseurl = process.env.REACT_APP_BASE_URL;
 
 export const menuList: { id: number; link: string; text: string }[] = [
   {

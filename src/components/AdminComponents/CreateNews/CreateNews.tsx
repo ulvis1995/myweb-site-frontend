@@ -17,7 +17,7 @@ export const CreateNews = (props: CreateNewsProps) => {
 
   const propsUpload: UploadProps = {
     defaultFileList:
-      props.chooseNews?.imgUrl !== null
+      props.chooseNews && props.chooseNews?.imgUrl !== null
         ? [
             {
               uid: '1',

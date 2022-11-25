@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Skeleton, Space } from 'antd';
+import { Skeleton, Space } from 'antd';
 
 const SkeletonBlock = () => {
   return (

@@ -2,9 +2,7 @@ import React from 'react';
 import st from './contacts.module.scss';
 import { contacts } from '../../constants/constants';
 
-type Props = {};
-
-export const Contacts = ({}: Props) => {
+export const Contacts = () => {
   return (
     <main className="wrapper">
       <div className={st.container}>
@@ -14,7 +12,7 @@ export const Contacts = ({}: Props) => {
             <ul>
               {block.data.map((i) => (
                 <li key={i.id}>
-                  <a href={i.ref} target="_blank" title={i.title}>
+                  <a href={i.ref} target="_blank" rel="noopener" title={i.title}>
                     {i.image}
                   </a>
                   <p>{i.text}</p>

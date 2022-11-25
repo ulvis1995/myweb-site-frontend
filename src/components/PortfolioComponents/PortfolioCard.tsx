@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { LinkIcon } from '../../assets/image/icons/LinkIcon';
 import { baseurl } from '../../constants/constants';
-import { useGetPortfolioQuery } from '../../store/Api';
 import { PortfolioCardProps } from '../../types/typesProps';
 import st from './portfolio-card.module.scss';
 
@@ -12,7 +11,7 @@ const PortfolioCard = (props: PortfolioCardProps) => {
   return (
     <div className="block-item">
       <div className="block-item_image">
-        {props.imgUrl && <img src={`${baseurl}/${props.imgUrl}`} />}
+        {props.imgUrl && <img src={`${baseurl}/${props.imgUrl}`} alt={props.name} />}
       </div>
       <div className={`block-item_info ${st.project_info}`}>
         <div>
@@ -20,14 +19,14 @@ const PortfolioCard = (props: PortfolioCardProps) => {
           <ul>
             <li>
               Git:
-              <a href={props.gitUrl} target="_blank">
+              <a href={props.gitUrl} target="_blank" rel="noreferrer">
                 <LinkIcon />
               </a>
             </li>
             {props.deploy !== null && (
               <li>
                 Deploy:
-                <a href={props.deploy} target="_blank">
+                <a href={props.deploy} target="_blank" rel="noreferrer">
                   <LinkIcon />
                 </a>
               </li>
