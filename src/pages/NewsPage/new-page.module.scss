@@ -14,18 +14,5 @@
     text-align: right;
     color: var(--white--100);
     width: 100%;
-
-    &_list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      margin: 12px auto;
-      gap: 12px;
-  
-      @include media-breakpoint-down('sm') {
-        flex-direction: column;
-      }
-    }
   }
 }

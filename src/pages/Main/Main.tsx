@@ -1,25 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import st from './main.module.scss';
-import { projectList } from '../../BlockData/portfolioData';
-import PortfolioBlock from '../../components/PortfolioBlock/PortfolioBlock';
+import PortfolioBlock from '../../components/PortfolioComponents/PortfolioBlock';
 import GrettingBlock from '../../components/Gretting/GrettingBlock';
 import HardSkillsBlock from '../../components/HardSkillsBlock/HardSkillsBlock';
-import NewsBlock from '../../components/NewsBlock/NewsBlock';
+import NewsBlock from '../../components/NewsComponents/NewsBlock';
+import { useGetPortfolioQuery } from '../../store/Api';
 
-import axios from '../../axios';
+export const Main = () => {
+  const { data } = useGetPortfolioQuery();
 
-const Main: React.FC = () => {
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get('/api/about');
-      const data = response.data;
-
-      console.log(data);
-      // return data
-    };
-
-    fetchData();
-  }, []);
+  const projectList = data
+    ?.filter((project) => project.is_best_work === true)
+    .sort((a, b) => Number(a.id) - Number(b.id));
 
   return (
     <main className="wrapper">
@@ -32,5 +24,3 @@ const Main: React.FC = () => {
     </main>
   );
 };
-
-export default Main;

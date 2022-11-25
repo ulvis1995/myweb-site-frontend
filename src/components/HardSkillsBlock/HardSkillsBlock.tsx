@@ -1,6 +1,6 @@
 import React from 'react';
 import st from './hard-skills.module.scss';
-import { skills } from '../../BlockData/constants';
+import { skills } from '../../constants/constants';
 import HeaderBlockText from '../HeaderBlock/HeaderBlockText';
 
 function HardSkillsBlock() {

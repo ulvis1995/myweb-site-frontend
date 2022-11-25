@@ -1,0 +1,28 @@
+.control_buttons {
+  display: flex;
+  flex-wrap: nowrap;
+
+  
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  background: transparent;
+
+  &:hover, &:focus {
+    border-radius: 8px;
+    border-color: var(--border);
+  }
+  
+svg {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  path {
+    fill: var(--white--100)
+  }
+}
+}
+}
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import st from './footer.module.scss';
-import { contacts } from '../../BlockData/constants';
+import { contacts } from '../../constants/constants';
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <ul>
               {block.data.map((i) => (
                 <li key={i.id}>
-                  <a href={i.ref} target="_blank" title={i.title}>
+                  <a href={i.ref} target="_blank" rel="noreferrer" title={i.title}>
                     {i.image}
                   </a>
                 </li>

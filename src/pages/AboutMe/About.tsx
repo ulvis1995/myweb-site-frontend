@@ -1,11 +1,21 @@
 import React from 'react';
 import st from './about.module.scss';
-import { aboutData } from '../../BlockData/aboutData';
 import AboutItem from './AboutItem';
+import { aboutApi, typeApi, useGetAboutQuery } from '../../store/Api';
+import { Skeleton } from 'antd';
 
-const About: React.FC = () => {
+export const About = () => {
   const [openBlock, setOpenBlock] = React.useState<number>(1);
-  const chooseBlock = aboutData.find((block) => block.id === openBlock);
+  const { isLoading } = useGetAboutQuery();
+
+  const { type } = typeApi.useGetTypeAboutQuery(undefined, {
+    selectFromResult: ({ data }) => ({ type: data ?? [] }),
+  });
+  const { aboutList } = aboutApi.useGetAboutQuery(undefined, {
+    selectFromResult: ({ data }) => ({ aboutList: data ?? [] }),
+  });
+
+  const chooseBlock = aboutList.filter((about) => Number(about.type?.id) === openBlock);
 
   const changeBlock = (id: number) => {
     setOpenBlock(id);
@@ -36,7 +46,7 @@ const About: React.FC = () => {
           </p>
         </div>
         <div className={st.container_about}>
-          {aboutData.map((item) => {
+          {type?.map((item) => {
             return (
               <div key={item.id}>
                 <input
@@ -44,18 +54,25 @@ const About: React.FC = () => {
                   id={item.title}
                   name="about"
                   value={item.title}
-                  checked={openBlock === item.id}
-                  onChange={() => changeBlock(item.id)}
+                  checked={openBlock === Number(item.id)}
+                  onChange={() => changeBlock(Number(item.id))}
                 />
                 <label htmlFor={item.title}>{item.title}</label>
               </div>
             );
           })}
         </div>
-        {openBlock !== null ? <AboutItem item={chooseBlock} /> : ''}
+        {isLoading ? (
+          <Skeleton
+            active
+            paragraph={{ rows: 12, width: '100%' }}
+            style={{ height: '380px' }}
+            title={false}
+          />
+        ) : (
+          <AboutItem item={chooseBlock} />
+        )}
       </div>
     </main>
   );
 };
-
-export default About;

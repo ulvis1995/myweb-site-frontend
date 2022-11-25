@@ -10,3 +10,6 @@ export { HabrIcon } from './HabrIcon';
 export { HhIcon } from './HhIcon';
 export { MailRuIcon } from './MailRuIcon';
 export { VkIcon } from './VkIcon';
+export { EnterIcon } from './EnterIcon';
+export { EditIcon } from './EditIcon';
+export { DeleteIcon } from './DeleteIcon';
