@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b956e31.css",
+    "main.js": "/static/js/main.b51fec1e.js",
+    "static/media/photo.png": "/static/media/photo.2adce325f7b25c9c508d.png",
+    "static/media/Nunito-LightItalic.ttf": "/static/media/Nunito-LightItalic.ca6674927a6bf05c3bf7.ttf",
+    "static/media/Nunito-MediumItalic.ttf": "/static/media/Nunito-MediumItalic.2bf63d164e8a8eeb2c19.ttf",
+    "static/media/Nunito-Italic.ttf": "/static/media/Nunito-Italic.89a1d755eb8a9098d26b.ttf",
+    "static/media/Nunito-SemiBoldItalic.ttf": "/static/media/Nunito-SemiBoldItalic.1205f7446eb935d607ea.ttf",
+    "static/media/Nunito-BoldItalic.ttf": "/static/media/Nunito-BoldItalic.89c3f5b69415fb11a526.ttf",
+    "static/media/Nunito-ExtraLightItalic.ttf": "/static/media/Nunito-ExtraLightItalic.db06651ca70104214708.ttf",
+    "static/media/Nunito-BlackItalic.ttf": "/static/media/Nunito-BlackItalic.60a0b8dac0388a9284c2.ttf",
+    "static/media/Nunito-Medium.ttf": "/static/media/Nunito-Medium.a7c01ee77faba77e24c1.ttf",
+    "static/media/Nunito-Light.ttf": "/static/media/Nunito-Light.0ec468f65958d1263b60.ttf",
+    "static/media/Nunito-Regular.ttf": "/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
+    "static/media/Nunito-SemiBold.ttf": "/static/media/Nunito-SemiBold.77c1e330694154d3efed.ttf",
+    "static/media/Nunito-Bold.ttf": "/static/media/Nunito-Bold.f4338623f94e6079de97.ttf",
+    "static/media/Nunito-ExtraBold.ttf": "/static/media/Nunito-ExtraBold.99f1fa27c5aaa2c5afb6.ttf",
+    "static/media/Nunito-Black.ttf": "/static/media/Nunito-Black.969e95ce4a719e43f654.ttf",
+    "static/media/Nunito-ExtraLight.ttf": "/static/media/Nunito-ExtraLight.52e1b77fe0519dcdcc7f.ttf",
+    "static/media/404.webp": "/static/media/404.758933b8c62194924d1a.webp",
+    "index.html": "/index.html",
+    "main.3b956e31.css.map": "/static/css/main.3b956e31.css.map",
+    "main.b51fec1e.js.map": "/static/js/main.b51fec1e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b956e31.css",
+    "static/js/main.b51fec1e.js"
+  ]
+}

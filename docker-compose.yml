@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  client:
+    container_name: client-dev
+    image: violettaparamonova/node:16-alpine
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 3000:3000 
+    tty: true
+    command: npm run start
